@@ -7,6 +7,14 @@ locals {
   }
 }
 
+# Generate random zone for each node
+resource "random_string" "random_postfix" {
+  length    = var.random_postfix_length
+  lower     = true
+  upper     = false
+  special   = false
+}
+
 resource "google_certificate_manager_dns_authorization" "wildcard_cert_dns_auth" {
   for_each    = local.dns_flat_list
   name        = "dns-auth${each.value.i}-${random_string.random_postfix.result}"
