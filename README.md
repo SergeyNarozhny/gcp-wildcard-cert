@@ -34,6 +34,6 @@ resource "cloudflare_record" "domain_dns_confirmation_records" {
 ## Outputs
 ```
 - wildcard_cert.cert
-- wildcard_cert.cert_map
+- wildcard_cert.cert_map_id
 - wildcard_cert.dns_resource_records
 ```
